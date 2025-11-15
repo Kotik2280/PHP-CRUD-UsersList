@@ -7,6 +7,17 @@
 </head>
 <body>
     <?php
+        echo "<form action='/create.php' method='POST'>";
+        echo "<h3>Добавить пользователя</h3>";
+
+        echo "<p> Имя: <input type='text' name='name' /> </p>";
+        echo "<p> Возраст: <input type='age' name='age' /> </p>";
+        
+        echo "<p> <input type='submit' value='Добавить'/> </p>";
+
+        echo "</form>";
+    ?>
+    <?php
         $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
 
         $sqlRequest = "Select * from users";
@@ -14,6 +25,8 @@
 
         echo "<h3> Пользователи </h3>";
         echo "<table>";
+
+        echo "<tr> <td>id</td> <td>Имя</td> <td>Возраст</td> </tr>";
 
         while ($user = $result->fetch()) {
             echo "<tr>";
