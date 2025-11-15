@@ -22,6 +22,14 @@
             echo "<td> {$user['name']} </td>";
             echo "<td> {$user['age']} </td>";
             echo "<td> <a href='/edit.php?id={$user["id"]}'>Редактировать</a> </td>";
+            echo "<td>";
+
+            echo "<form action='/delete.php' method='POST'>";
+            echo "<input type='hidden' name='id' value='{$user["id"]}' />";
+            echo "<input type='submit' value='Удалить' />";
+            echo "</form>";
+
+            echo "</td>";
 
             echo "</tr>";
         }
