@@ -2,7 +2,7 @@
     if (isset($_POST["id"])) {
         $id = htmlentities($_POST["id"]);
 
-        $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
+        $conn = new PDO("mysql:host=db;dbname=testdb1;port=3306", "root", "mypassword");
 
         $sqlRequest = "Delete from users where id=:id";
 

@@ -18,7 +18,7 @@
         echo "</form>";
     ?>
     <?php
-        $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
+        $conn = new PDO("mysql:host=db;dbname=testdb1;", "root", "mypassword");
 
         $sqlRequest = "Select * from users";
         $result = $conn->query($sqlRequest);

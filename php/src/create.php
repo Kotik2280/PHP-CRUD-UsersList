@@ -3,7 +3,7 @@
         $name = htmlentities($_POST["name"]);
         $age = htmlentities($_POST["age"]);
 
-        $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
+        $conn = new PDO("mysql:host=db;dbname=testdb1;port=3306", "root", "mypassword");
 
         $sqlRequest = "Insert into users (name, age) values (:name, :age)";
         

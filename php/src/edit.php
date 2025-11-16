@@ -1,7 +1,7 @@
 <?php
     if (isset($_GET["id"])) {
         $id = htmlentities($_GET["id"]);
-        $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
+        $conn = new PDO("mysql:host=db;dbname=testdb1;port=3306", "root", "mypassword");
         
         $sqlRequest = "Select * from users where id=:id";
 
@@ -43,7 +43,7 @@
         $newName = htmlentities($_POST["name"]);
         $newAge = htmlentities($_POST["age"]);
 
-        $conn = new PDO("mysql:host=localhost;dbname=testdb1;port=3306", "root", "mypassword");
+        $conn = new PDO("mysql:host=db;dbname=testdb1;port=3306", "root", "mypassword");
 
         $sqlRequest = "Select * from users where id=:id";
 

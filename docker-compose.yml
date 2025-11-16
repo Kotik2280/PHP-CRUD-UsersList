@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./php
+    ports:
+      - "8080:80"  # Пробрасываем порт 8080 хоста на 80 контейнера
+    volumes:
+      - ./php/src:/var/www/html  # Монтируем PHP файлы
+    depends_on:
+      db: 
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: testdb1
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql  # Инициализация БД
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]  # Простой пинг
+      timeout: 5s
+      retries: 10
+      start_period: 10s
